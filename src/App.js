@@ -1,12 +1,13 @@
-import "./App.css";
-import Button from "@mui/material/Button";
+import React from'react';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
-    <div className="App">
-    	<Button sx={{ p: 1, mb: 1 }} variant="contained">Contained</Button>
-    </div>
+  	<SignIn />
   );
 }
 
 export default App;
+
+
+
