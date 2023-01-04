@@ -18,7 +18,7 @@ export const FormSubTitle = styled(Typography)({
 
 export const FormButton = styled(Button)({
   border: '1px solid black',
-  marginTop: '15px',
+  marginTop: '16px',
   background: '#000',
   padding: '16px',
   color: '#fff',
