@@ -5,8 +5,9 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import HttpsIcon from '@mui/icons-material/Https';
 import Stack from '@mui/material/Stack';
 import { Form, Field, Formik } from 'formik';
-import { FormWrapper, FormTitle, FormSubTitle, FormButton, FormInner, FormInput } from './styled';
+import { FormWrapper, FormTitle, FormSubTitle, FormButton, FormInner } from './styled';
 import { object, string } from 'yup';
+import { TextField } from '@mui/material';
 
 const initialValues = {
   name: '',
@@ -35,11 +36,11 @@ const SignInForm = () => {
               .min(7, 'Password should be minium 7 Characters'),
           })}
         >
-          {({ errors, isValid, touched, dirty }) => (
+          {({ errors, touched }) => (
             <Form>
               <Stack gap={2}>
                 <Field
-                  as={FormInput}
+                  as={TextField}
                   placeholder='Full Name'
                   name='name'
                   type='name'
@@ -55,7 +56,7 @@ const SignInForm = () => {
                 />
 
                 <Field
-                  as={FormInput}
+                  as={TextField}
                   placeholder='Email'
                   name='email'
                   type='email'
@@ -71,7 +72,7 @@ const SignInForm = () => {
                 />
 
                 <Field
-                  as={FormInput}
+                  as={TextField}
                   placeholder='Password'
                   name='password'
                   type='password'
@@ -86,7 +87,7 @@ const SignInForm = () => {
                   }}
                 />
 
-                <FormButton type='submit' variant='contained' disabled={!dirty || !isValid}>
+                <FormButton type='submit' variant='contained'>
                   Register
                 </FormButton>
               </Stack>
