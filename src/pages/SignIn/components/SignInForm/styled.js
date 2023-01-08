@@ -1,4 +1,4 @@
-import { Box, Typography, Button, TextField, styled } from '@mui/material';
+import { Box, Typography, Button, styled } from '@mui/material';
 
 export const FormWrapper = styled(Box)({
   display: 'flex',
@@ -32,11 +32,4 @@ export const FormInner = styled(Box)({
   width: '400px',
   display: 'flex',
   flexDirection: 'column',
-});
-
-export const FormInput = styled(TextField)({
-  '& input:valid:focus + fieldset': {
-    borderColor: '#000',
-    borderWidth: 1, // override inline-style
-  },
 });
