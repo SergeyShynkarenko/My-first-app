@@ -33,3 +33,8 @@ export const FormInner = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
 });
+
+export const FormAccount = styled(Typography)({
+  fontSize: '16px',
+  marginTop: '25px',
+});

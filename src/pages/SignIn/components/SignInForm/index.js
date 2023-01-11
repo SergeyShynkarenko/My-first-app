@@ -5,9 +5,10 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import HttpsIcon from '@mui/icons-material/Https';
 import Stack from '@mui/material/Stack';
 import { Form, Field, Formik } from 'formik';
-import { FormWrapper, FormTitle, FormSubTitle, FormButton, FormInner } from './styled';
+import { FormWrapper, FormTitle, FormSubTitle, FormButton, FormInner, FormAccount } from './styled';
 import { object, string } from 'yup';
 import { TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -21,7 +22,6 @@ const SignInForm = () => {
       <FormInner>
         <FormTitle variant='h3'>Hello</FormTitle>
         <FormSubTitle variant='h4'>Sign Up to Get Started</FormSubTitle>
-
         <Formik
           initialValues={initialValues}
           onSubmit={(values, formikHelpers) => {
@@ -94,6 +94,13 @@ const SignInForm = () => {
             </Form>
           )}
         </Formik>
+
+        <FormAccount variant='h4'>
+          Dont have account?{' '}
+          <Link style={{ textDecoration: 'none', color: '#3A57E8' }} to='Sign-up'>
+            Sign Up
+          </Link>
+        </FormAccount>
       </FormInner>
     </FormWrapper>
   );

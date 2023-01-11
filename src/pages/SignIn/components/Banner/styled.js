@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from '@mui/material';
-import Image from '../../../../assets/img/bg.jpg';
+import Image from '../../../../assets/img/sign-in-bg.jpg';
 
 export const BannerWrapper = styled(Box)({
   backgroundImage: `url(${Image})`,
