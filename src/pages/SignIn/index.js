@@ -1,14 +1,12 @@
+import AuthLayout from 'layouts/AuthLayout';
 import React from 'react';
-import Banner from './components/Banner';
 import SignInForm from './components/SignInForm';
-import { SignInWrapper } from './styled';
 
 const SignIn = () => {
   return (
-    <SignInWrapper>
-      <Banner />
+    <AuthLayout>
       <SignInForm />
-    </SignInWrapper>
+    </AuthLayout>
   );
 };
 

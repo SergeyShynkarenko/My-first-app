@@ -1,15 +1,13 @@
+import AuthLayout from 'layouts/AuthLayout';
 import React from 'react';
-import Banner from './components/Banner';
-import SignUpForm from './components/SignUpForm';
 
-import { SignUpWrapper } from './styled';
+import SignUpForm from './components/SignUpForm';
 
 const SignUp = () => {
   return (
-    <SignUpWrapper>
-      <Banner />
+    <AuthLayout>
       <SignUpForm />
-    </SignUpWrapper>
+    </AuthLayout>
   );
 };
 

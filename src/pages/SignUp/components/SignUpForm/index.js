@@ -1,16 +1,24 @@
-import { TextField } from '@mui/material';
+import { Box, FormHelperText, TextField } from '@mui/material';
 import React from 'react';
-import { Field, Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import { boolean, object, string } from 'yup';
 import Checkbox from '@mui/material/Checkbox';
-import { FormInner, FormText, FormTitle, InputsWrapper, SocialLinks, FormButton } from './styled';
+import {
+  FormInner,
+  FormText,
+  FormTitle,
+  InputsWrapper,
+  SocialLinks,
+  FormButton,
+  FormWrapper,
+} from './styled';
 import { Link } from 'react-router-dom';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { ReactComponent as GoogleIcon } from '../../../../assets/img/google.svg';
 import { ReactComponent as FacebookIcon } from '../../../../assets/img/facebook.svg';
 import { ReactComponent as InstagramIcon } from '../../../../assets/img/instagram.svg';
 import { ReactComponent as LinkedinIcon } from '../../../../assets/img/linkedin.svg';
-import styledComponents from 'styled-components';
+import CustomCheckbox from 'components/CustomCheckbox';
 
 const initialValues = {
   firstName: '',
@@ -23,21 +31,14 @@ const initialValues = {
 };
 
 const SignUp = () => {
-  const termsCheckboxLabel = 'I agree with the terms of use';
-
-  const FormWrapper = styledComponents(Form)({
-    width: '516px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  });
-
   return (
     <FormInner>
       <FormTitle variant='h2'>Sign Up</FormTitle>
-      <FormText style={{ color: '#8A92A6' }} variant='h4'>
+
+      <FormText sx={{ color: '#8A92A6' }} variant='h4'>
         Create your Hope UI account
       </FormText>
+
       <Formik
         initialValues={initialValues}
         onSubmit={(values, formikHelpers) => {
@@ -118,12 +119,15 @@ const SignUp = () => {
               />
             </InputsWrapper>
 
-            <FormControlLabel
-              control={<Checkbox id='termsCheck' name='termsCheck' color='primary' required />}
-              id='termsCheck'
-              name='termsCheck'
-              label={termsCheckboxLabel}
-            />
+            <Box>
+              <Field
+                component={CustomCheckbox}
+                label='Confirm Password'
+                name='termsCheck'
+                error={Boolean(errors.termsCheck)}
+              />
+            </Box>
+
             <FormButton type='submit' variant='contained'>
               Sign up
             </FormButton>

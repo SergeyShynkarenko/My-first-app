@@ -1,9 +1,17 @@
 import { Box, Typography, Button, styled } from '@mui/material';
+import { Form } from 'formik';
 
 export const FormInner = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  alignItems: 'center',
+});
+
+export const FormWrapper = styled(Form)({
+  width: '516px',
+  display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
 });
 

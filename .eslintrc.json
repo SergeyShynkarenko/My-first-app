@@ -17,6 +17,17 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "react/prop-types": "off",
+    "no-unused-vars": "warn"
+  }
 }
