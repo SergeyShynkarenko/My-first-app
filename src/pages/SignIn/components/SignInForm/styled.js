@@ -1,4 +1,5 @@
 import { Box, Typography, Button, styled } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export const FormWrapper = styled(Box)({
   display: 'flex',
@@ -37,4 +38,9 @@ export const FormInner = styled(Box)({
 export const FormAccount = styled(Typography)({
   fontSize: '16px',
   marginTop: '25px',
+});
+
+export const FormLink = styled(Link)({
+  color: '#3A57E8',
+  textDecoration: 'none',
 });

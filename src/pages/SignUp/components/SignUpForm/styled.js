@@ -1,5 +1,6 @@
 import { Box, Typography, Button, styled } from '@mui/material';
 import { Form } from 'formik';
+import { Link } from 'react-router-dom';
 
 export const FormInner = styled(Box)({
   display: 'flex',
@@ -35,9 +36,6 @@ export const InputsWrapper = styled(Box)({
   flexWrap: 'wrap',
   margin: '16px 0',
   gap: '16px',
-  '& > *': {
-    width: '250px',
-  },
 });
 
 export const SocialLinks = styled(Box)({
@@ -57,4 +55,9 @@ export const FormButton = styled(Button)({
   fontSize: '16px',
   lineHeight: '28px',
   fontWeight: '400',
+});
+
+export const FormLink = styled(Link)({
+  color: '#3A57E8',
+  textDecoration: 'none',
 });

@@ -1,8 +1,6 @@
-import { Box, FormHelperText, TextField } from '@mui/material';
 import React from 'react';
 import { Field, Formik } from 'formik';
 import { boolean, object, string } from 'yup';
-import Checkbox from '@mui/material/Checkbox';
 import {
   FormInner,
   FormText,
@@ -11,14 +9,14 @@ import {
   SocialLinks,
   FormButton,
   FormWrapper,
+  FormLink,
 } from './styled';
-import { Link } from 'react-router-dom';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { ReactComponent as GoogleIcon } from '../../../../assets/img/google.svg';
-import { ReactComponent as FacebookIcon } from '../../../../assets/img/facebook.svg';
-import { ReactComponent as InstagramIcon } from '../../../../assets/img/instagram.svg';
-import { ReactComponent as LinkedinIcon } from '../../../../assets/img/linkedin.svg';
+import { ReactComponent as GoogleIcon } from 'assets/img/google.svg';
+import { ReactComponent as FacebookIcon } from 'assets/img/facebook.svg';
+import { ReactComponent as InstagramIcon } from 'assets/img/instagram.svg';
+import { ReactComponent as LinkedinIcon } from 'assets/img/linkedin.svg';
 import CustomCheckbox from 'components/CustomCheckbox';
+import CustomInput from 'components/CustomInput';
 
 const initialValues = {
   firstName: '',
@@ -61,72 +59,42 @@ const SignUp = () => {
           termsCheck: boolean().oneOf([true], 'Required terms of use'),
         })}
       >
-        {({ errors, touched }) => (
+        {({ errors }) => (
           <FormWrapper>
             <InputsWrapper>
               <Field
-                as={TextField}
+                component={CustomInput}
                 placeholder='First Name'
                 name='firstName'
                 type='name'
-                error={Boolean(errors.firstName) && Boolean(touched.firstName)}
-                helperText={Boolean(touched.firstName) && errors.firstName}
               />
 
-              <Field
-                as={TextField}
-                placeholder='Last Name'
-                name='lastName'
-                type='name'
-                error={Boolean(errors.lastName) && Boolean(touched.lastName)}
-                helperText={Boolean(touched.lastName) && errors.lastName}
-              />
+              <Field component={CustomInput} placeholder='Last Name' name='lastName' type='name' />
+
+              <Field component={CustomInput} placeholder='Email' name='email' type='email' />
+
+              <Field component={CustomInput} placeholder='Phone No' name='phone' type='tel' />
 
               <Field
-                as={TextField}
-                placeholder='Email'
-                name='email'
-                type='email'
-                error={Boolean(errors.email) && Boolean(touched.email)}
-                helperText={Boolean(touched.email) && errors.email}
-              />
-
-              <Field
-                as={TextField}
-                placeholder='Phone No'
-                name='phone'
-                type='tel'
-                error={Boolean(errors.phone) && Boolean(touched.phone)}
-                helperText={Boolean(touched.phone) && errors.phone}
-              />
-
-              <Field
-                as={TextField}
+                component={CustomInput}
                 placeholder='Password'
                 name='password'
                 type='password'
-                error={Boolean(errors.password) && Boolean(touched.password)}
-                helperText={Boolean(touched.password) && errors.password}
               />
 
               <Field
-                as={TextField}
-                placeholder='Confirm Password'
+                component={CustomInput}
                 name='confirmPassword'
-                type='password'
-                error={Boolean(errors.confirmPassword) && Boolean(touched.confirmPassword)}
-                helperText={Boolean(touched.confirmPassword) && errors.confirmPassword}
+                placeholder='Confirm password'
               />
             </InputsWrapper>
 
-            <Box>
-              <Field
-                component={CustomCheckbox}
-                label='Confirm Password'
-                name='termsCheck'
-                error={Boolean(errors.termsCheck)}
-              />
-            </Box>
+            <Field
+              component={CustomCheckbox}
+              label='I agree with the terms of use'
+              name='termsCheck'
+              error={Boolean(errors.termsCheck)}
+            />
 
             <FormButton type='submit' variant='contained'>
               Sign up
@@ -153,10 +121,7 @@ const SignUp = () => {
       </SocialLinks>
 
       <FormText variant='h4'>
-        Already have an account?{' '}
-        <Link style={{ textDecoration: 'none', color: '#3A57E8' }} to='/'>
-          Sign in
-        </Link>
+        Already have an account? <FormLink to='/'>Sign in</FormLink>
       </FormText>
     </FormInner>
   );
