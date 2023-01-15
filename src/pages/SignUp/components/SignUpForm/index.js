@@ -59,54 +59,38 @@ const SignUp = () => {
           termsCheck: boolean().oneOf([true], 'Required terms of use'),
         })}
       >
-        {({ errors }) => (
-          <FormWrapper>
-            <InputsWrapper>
-              <Field
-                component={CustomInput}
-                placeholder='First Name'
-                name='firstName'
-                type='name'
-              />
+        <FormWrapper>
+          <InputsWrapper>
+            <Field component={CustomInput} placeholder='First Name' name='firstName' type='name' />
 
-              <Field component={CustomInput} placeholder='Last Name' name='lastName' type='name' />
+            <Field component={CustomInput} placeholder='Last Name' name='lastName' type='name' />
 
-              <Field component={CustomInput} placeholder='Email' name='email' type='email' />
+            <Field component={CustomInput} placeholder='Email' name='email' type='email' />
 
-              <Field component={CustomInput} placeholder='Phone No' name='phone' type='tel' />
+            <Field component={CustomInput} placeholder='Phone No' name='phone' type='tel' />
 
-              <Field
-                component={CustomInput}
-                placeholder='Password'
-                name='password'
-                type='password'
-              />
+            <Field component={CustomInput} placeholder='Password' name='password' type='password' />
 
-              <Field
-                component={CustomInput}
-                name='confirmPassword'
-                placeholder='Confirm password'
-              />
-            </InputsWrapper>
+            <Field component={CustomInput} name='confirmPassword' placeholder='Confirm password' />
+          </InputsWrapper>
 
-            {/* <Field
+          {/* <Field
 								component={CustomCheckbox}
 								label='I agree with the terms of use'
 								name='termsCheck'
 								error={Boolean(errors.termsCheck)}
 							/> */}
 
-            <Field
-              name='termsCheck'
-              label='I agree with the terms of use'
-              component={CustomCheckbox}
-            />
+          <Field
+            name='termsCheck'
+            label='I agree with the terms of use'
+            component={CustomCheckbox}
+          />
 
-            <FormButton type='submit' variant='contained'>
-              Sign up
-            </FormButton>
-          </FormWrapper>
-        )}
+          <FormButton type='submit' variant='contained'>
+            Sign up
+          </FormButton>
+        </FormWrapper>
       </Formik>
 
       <FormText variant='h4'>or sign up with other accounts?</FormText>
