@@ -89,11 +89,17 @@ const SignUp = () => {
               />
             </InputsWrapper>
 
+            {/* <Field
+								component={CustomCheckbox}
+								label='I agree with the terms of use'
+								name='termsCheck'
+								error={Boolean(errors.termsCheck)}
+							/> */}
+
             <Field
-              component={CustomCheckbox}
-              label='I agree with the terms of use'
               name='termsCheck'
-              error={Boolean(errors.termsCheck)}
+              label='I agree with the terms of use'
+              component={CustomCheckbox}
             />
 
             <FormButton type='submit' variant='contained'>
@@ -128,3 +134,12 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+{
+  /* <Field
+name='pacingOptimizationPerAd'
+label='Performance price optimization per ad size'
+tooltip='Some text'
+component={FormCheckbox}
+/> */
+}

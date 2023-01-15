@@ -1,19 +1,24 @@
-import { Checkbox, FormControlLabel, FormHelperText } from '@mui/material';
 import React from 'react';
+// material-ui
+import { Checkbox, FormControl, FormControlLabel, FormHelperText } from '@mui/material';
+// libs
+import { getIn } from 'formik';
 
-const CustomCheckbox = ({ field, form: { touched, errors }, ...props }) => {
+const CustomCheckbox = ({ field, helperText, form: { errors, touched }, ...props }) => {
+  const errorMessage = getIn(errors, field.name);
+  const isError = errorMessage && getIn(touched, field.name);
+
   return (
-    <div>
+    <FormControl error={isError} size='small'>
       <FormControlLabel
         {...field}
         {...props}
         control={<Checkbox checked={field.value} color='primary' />}
       />
 
-      {touched[field.name] && errors[field.name] && (
-        <FormHelperText error>{errors[field.name]}</FormHelperText>
-      )}
-    </div>
+      {helperText && !isError && <FormHelperText>{helperText}</FormHelperText>}
+      {isError && <FormHelperText>{errorMessage}</FormHelperText>}
+    </FormControl>
   );
 };
 
