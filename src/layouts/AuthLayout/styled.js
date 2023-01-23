@@ -1,5 +1,6 @@
 import { Box, Typography, styled } from '@mui/material';
-import Image from '../../../../assets/img/bg.jpg';
+// eslint-disable-next-line import/no-unresolved
+import Image from 'assets/img/sign-in-bg.jpg';
 
 export const BannerWrapper = styled(Box)({
   backgroundImage: `url(${Image})`,
@@ -19,4 +20,14 @@ export const BannerTitle = styled(Typography)({
   fontSize: '41px',
   fontWeight: 'bold',
   color: 'white',
+});
+
+export const SignInWrapper = styled(Box)({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  height: '100%',
+  '& > *': {
+    flex: 1,
+  },
 });
